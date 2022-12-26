@@ -128,7 +128,14 @@ class CalculateBinaryNumbers{
         }
 
         //convert it to integer
-        long long int AB = stoll(charA);
+        long long int AB = 0;
+        try{
+            AB = stoll(charA);
+        }
+        catch(std::out_of_range error){
+            cout << "Index out of range. Only can calculate binary numbers with range less or equal to 18 digits. \n";
+            return 0;
+        }
 
         return AB;
     }
@@ -137,5 +144,5 @@ class CalculateBinaryNumbers{
 
 int main(){
     CalculateBinaryNumbers cbn;
-    std::cout << cbn.addBinaryNumbers("1011", "10111");
+    std::cout << cbn.addBinaryNumbers("1111111111111111111", "1010000111111");
 }
